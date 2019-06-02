@@ -6,10 +6,16 @@ app = Flask(__name__)
 def hello():
     return render_template('index.html')
 
+@app.route('/heroes/')
+def hero():
+    return render_template('hero.html')
+
+
+
 @app.route('/heroes/<name>/')
-def hero(name):
+def heroes(name):
     if name == 'Warrior' or name == 'Archer' or name == 'Mag':
-        return render_template('Mag.html')
+        return render_template('For_Heroe.html', name=name)
 
     else:
         return render_template('War.html')
